@@ -450,19 +450,54 @@ export const placementStats = [
   { value: 250, suffix: "+", label: "Recruiting Companies" },
 ];
 
+import landt from "../assets/maquee _logos/Picture1.png"
+import infosys from "../assets/maquee _logos/infosys.png"
+
 export const partners = [
-  "Accenture",
-  "Infosys",
-  "TCS",
-  "Sage Automation",
-  "Schneider Electric",
-  "Reliance Industries",
-  "HCL Technologies",
-  "Bridgestone",
-  "Wipro",
-  "Capgemini",
-  "L&T",
-  "Siemens",
+  {
+    name: "L&T",
+    logo: landt,
+  },
+  {
+    name: "Infosys",
+    logo: infosys,
+  },
+  {
+    name: "TCS",
+    logo: "/partners/tcs.png",
+  },
+  {
+    name: "Sage Automation",
+    logo: "/partners/sage-automation.png",
+  },
+  {
+    name: "Schneider Electric",
+    logo: "/partners/schneider-electric.png",
+  },
+  {
+    name: "Reliance Industries",
+    logo: "/partners/reliance.png",
+  },
+  {
+    name: "HCL Technologies",
+    logo: "/partners/hcl.png",
+  },
+  {
+    name: "Bridgestone",
+    logo: "/partners/bridgestone.png",
+  },
+  {
+    name: "Wipro",
+    logo: "/partners/wipro.png",
+  },
+  {
+    name: "Capgemini",
+    logo: "/partners/capgemini.png",
+  },
+  {
+    name: "Siemens",
+    logo: "/partners/siemens.png",
+  },
 ];
 
 export const whyChoose = [
@@ -641,10 +676,10 @@ export const generalFaqs = [
 ];
 
 export const contactInfo = {
-  phone: "+91 98765 43210",
-  email: "info@ssmlec.com",
-  address: "SSM Learning Excellence Centre, Pune, Maharashtra, India",
-  mapQuery: "Pune, Maharashtra, India",
+  phone: "+91 99740 61290",
+  email: "Learning@ssm-infotech.com",
+  address: "SSM Learning Excellence Centre, 704 Luxuria Business Hub, Near Y Junction, Dumas Road, Surat - 395007, Gujarat, India",
+  mapQuery: "704 Luxuria Business Hub, Near Y Junction, Dumas Road, Surat, Gujarat, India",
 };
 
 export const courseOptions = courses.map((c) => c.title);

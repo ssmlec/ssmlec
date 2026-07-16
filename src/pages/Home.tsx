@@ -13,8 +13,8 @@ import {
   Award,
 } from "lucide-react";
 
-import heroBg from "@/assets/hero-bg.jpg";
-import aboutLab from "@/assets/about-lab.jpg";
+import heroBg from "@/assets/Background2.png";
+import aboutLab from "@/assets/heroimg.png";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,

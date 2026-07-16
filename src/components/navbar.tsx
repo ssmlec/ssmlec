@@ -48,87 +48,103 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "glass py-2 shadow-soft" : "bg-transparent py-3",
-      )}
-    >
+ <header
+  className={cn(
+    "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+    scrolled
+      ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-blue-100 py-2"
+      : "bg-transparent py-3"
+  )}
+>
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Logo />
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
-          <NavItem to="/" label="Home" />
-          <NavItem to="/about" label="About" />
+   <div className="hidden items-center gap-1 lg:flex">
+  <NavItem to="/" label="Home" scrolled={scrolled} />
+  <NavItem to="/about" label="About" scrolled={scrolled} />
 
-          {/* Courses mega menu */}
-          <div
-            className="relative"
-            onMouseEnter={() => setMegaOpen(true)}
-            onMouseLeave={() => setMegaOpen(false)}
-          >
-            <button
-              className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground"
-              aria-expanded={megaOpen}
-            >
-              Courses
-              <ChevronDown className={cn("size-4 transition-transform", megaOpen && "rotate-180")} />
-            </button>
-            <AnimatePresence>
-              {megaOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute left-1/2 top-full w-[min(92vw,880px)] -translate-x-1/2 pt-3"
-                >
-                  <div className="glass grid grid-cols-3 gap-2 rounded-2xl p-4">
-                    {categories.map((cat) => {
-                      const meta = categoryMeta[cat];
-                      const Icon = meta.icon;
-                      return (
-                        <div key={cat} className="rounded-xl p-2">
-                          <Link
-                            to={`/courses#${cat}`}
-                            className="mb-2 flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-bold text-foreground"
-                          >
-                            <span className="grid size-8 place-items-center rounded-lg bg-gradient-brand text-white">
-                              <Icon className="size-4" />
-                            </span>
-                            {meta.label}
-                          </Link>
-                          <ul className="space-y-0.5">
-                            {coursesByCategory(cat).map((c) => (
-                              <li key={c.slug}>
-                                <Link
-                                  to={`/courses/${c.slug}`}
-                                  className="block rounded-lg px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-accent"
-                                >
-                                  {c.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+  {/* Courses mega menu */}
+  <div
+    className="relative"
+    onMouseEnter={() => setMegaOpen(true)}
+    onMouseLeave={() => setMegaOpen(false)}
+  >
+    <button
+      className={cn(
+        "flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-all duration-300",
+        scrolled
+          ? "text-blue-900 hover:bg-blue-50 hover:text-blue-700"
+          : "text-white hover:bg-white/10 hover:text-white"
+      )}
+      aria-expanded={megaOpen}
+    >
+      Courses
+      <ChevronDown
+        className={cn(
+          "size-4 transition-transform",
+          megaOpen && "rotate-180"
+        )}
+      />
+    </button>
+
+    <AnimatePresence>
+      {megaOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute left-1/2 top-full w-[min(92vw,880px)] -translate-x-1/2 pt-3"
+        >
+          <div className="glass grid grid-cols-3 gap-2 rounded-2xl p-4">
+            {categories.map((cat) => {
+              const meta = categoryMeta[cat];
+              const Icon = meta.icon;
+
+              return (
+                <div key={cat} className="rounded-xl p-2">
+                  <Link
+                    to={`/courses#${cat}`}
+                    className="mb-2 flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-bold text-blue-900"
+                  >
+                    <span className="grid size-8 place-items-center rounded-lg bg-gradient-brand text-white">
+                      <Icon className="size-4" />
+                    </span>
+
+                    {meta.label}
+                  </Link>
+
+                  <ul className="space-y-0.5">
+                    {coursesByCategory(cat).map((c) => (
+                      <li key={c.slug}>
+                        <Link
+                          to={`/courses/${c.slug}`}
+                          className="block rounded-lg px-2 py-1.5 text-xs text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                        >
+                          {c.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
 
-          <NavItem to="/placements" label="Placements" />
-          <NavItem to="/gallery" label="Gallery" />
-          <NavItem to="/blog" label="Blog" />
-          <NavItem to="/events" label="Events" />
-          <NavItem to="/contact" label="Contact" />
-        </div>
+  <NavItem to="/placements" label="Placements" scrolled={scrolled} />
+  <NavItem to="/gallery" label="Gallery" scrolled={scrolled} />
+  <NavItem to="/blog" label="Blog" scrolled={scrolled} />
+  <NavItem to="/events" label="Events" scrolled={scrolled} />
+  <NavItem to="/contact" label="Contact" scrolled={scrolled} />
+</div>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <EnquiryDialog>
             <Button variant="hero" size="sm" className="hidden sm:inline-flex">
               <Phone className="size-4" /> Enquire Now
@@ -179,6 +195,7 @@ export function Navbar() {
                                 to={`/courses/${c.slug}`}
                                 onClick={() => setMobileOpen(false)}
                                 className="block rounded-lg px-2 py-1.5 text-sm text-muted-foreground hover:text-accent"
+                              
                               >
                                 {c.title}
                               </Link>
@@ -215,15 +232,29 @@ export function Navbar() {
   );
 }
 
-function NavItem({ to, label }: { to: string; label: string }) {
+function NavItem({
+  to,
+  label,
+  scrolled,
+}: {
+  to: string;
+  label: string;
+  scrolled: boolean;
+}) {
   return (
     <NavLink
       to={to}
       end={to === "/"}
       className={({ isActive }) =>
         cn(
-          "rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground",
-          isActive && "bg-secondary text-accent",
+          "rounded-full px-3.5 py-2 text-sm font-semibold transition-all duration-300",
+          scrolled
+            ? "text-blue-900 hover:bg-blue-50 hover:text-blue-700"
+            : "text-white hover:bg-white/10",
+          isActive &&
+            (scrolled
+              ? "bg-blue-100 text-blue-700"
+              : "bg-white text-red-600")
         )
       }
     >
@@ -231,7 +262,6 @@ function NavItem({ to, label }: { to: string; label: string }) {
     </NavLink>
   );
 }
-
 function MobileLink({ to, label, onClick }: { to: string; label: string; onClick: () => void }) {
   return (
     <NavLink

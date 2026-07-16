@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/ssmlec-logo.jpg.asset.json";
+import logoAsset from "@/assets/logo-1.png";
 
 export function Logo({ light = false, className }: { light?: boolean; className?: string }) {
   return (
@@ -12,10 +12,10 @@ export function Logo({ light = false, className }: { light?: boolean; className?
         )}
       >
         <img
-          src={logoAsset.url}
+          src={logoAsset}
           alt="SSM Learning Excellence Centre logo"
-          width={560}
-          height={330}
+          // width={560}
+          // height={330}
           className="h-11 w-auto sm:h-12"
         />
       </span>

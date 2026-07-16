@@ -139,11 +139,11 @@ export function Footer() {
             </form>
           </div>
         </div>
-
+      {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.134544025956!2d72.75712867587472!3d21.147043283704207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f9bef549299%3A0x6a4d5142101724c8!2sSSM%20Learning%20Excellence%20Centre!5e0!3m2!1sen!2sin!4v1784115735535!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> */}
         <div className="mt-12 overflow-hidden rounded-2xl border border-white/10">
           <iframe
             title="SSMLEC location map"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(contactInfo.mapQuery)}&output=embed`}
+            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.134544025956!2d72.75712867587472!3d21.147043283704207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f9bef549299%3A0x6a4d5142101724c8!2sSSM%20Learning%20Excellence%20Centre!5e0!3m2!1sen!2sin!4v1784115735535!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin`}
             className="h-56 w-full grayscale"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
